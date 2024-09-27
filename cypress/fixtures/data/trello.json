@@ -1,0 +1,25 @@
+{
+	"main":{
+		"baseURL":"https://api.trello.com/1"
+	},
+	"paths": {
+		"boards":"boards",
+		"lists":"lists",
+		"cards":"cards",
+		"moveAllCards":"moveAllCards",
+		"archieveAllCards":"archiveAllCards"
+	},
+	"titles": {
+		"board":"Board Title",
+		"card":"Card Title",
+		"list":"List Title"
+	},
+	"ids": {
+		"board":null,
+		"card":null,
+		"list1":null,
+		"list2":null,
+		"fake":"0123456789abc",
+		"null":null
+	}
+}
