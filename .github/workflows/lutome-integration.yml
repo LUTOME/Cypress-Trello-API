@@ -3,7 +3,7 @@ run-name: ${{github.actor}}👨🏻‍🔬 triggered SanityTest in ${{github.ref
 
 on:
   push:
-    branches: ['QA']
+    branches: ['qa']
   workflow_dispatch:
 
 jobs:
