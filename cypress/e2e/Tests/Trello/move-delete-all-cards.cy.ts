@@ -1,6 +1,7 @@
 import data from '../../../fixtures/data/trello.json';
 const key:string = Cypress.env('apiKey');
 const token:string = Cypress.env('apiToken');
+//comment!
 
 describe('A- Preconditions', () => {
 	it('1.0: Create a board', () => {
