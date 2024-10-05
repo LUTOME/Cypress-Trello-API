@@ -1,6 +1,15 @@
 import { defineConfig } from 'cypress';
 import createBundler from '@bahmutov/cypress-esbuild-preprocessor';
-import 'dotenv/config';
+import dotenv from 'dotenv';
+dotenv.config();
+
+const apiKey = process.env.APIKEY;
+const apiToken = process.env.APITOKEN;
+
+if(!apiKey||!apiToken) {
+	throw new Error('Missing auth variables')
+};
+
 
 export default defineConfig({
 	// CYPRESS CLOUD : Aquí se configura el project id para ejecutar pruebas en https://cloud.cypress.io

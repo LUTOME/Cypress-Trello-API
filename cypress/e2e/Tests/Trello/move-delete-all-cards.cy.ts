@@ -1,6 +1,6 @@
 import data from '../../../fixtures/data/trello.json';
-const TRELLO_KEY:string = Cypress.env('TRELLO_KEY');
-const TRELLO_TOKEN:string = Cypress.env('TRELLO_TOKEN');
+const key:string = Cypress.env('apiKey');
+const token:string = Cypress.env('apiToken');
 
 describe('A- Preconditions', () => {
 	it('1.0: Create a board', () => {
@@ -8,8 +8,8 @@ describe('A- Preconditions', () => {
 			method: 'POST',
 			url: `${data.main.baseURL}/${data.paths.boards}`,
 			qs: {
-				key: TRELLO_KEY,
-				token: TRELLO_TOKEN,
+				key: key,
+				token: token,
 				name: data.titles.board
 			},
 		}).then(response => {
@@ -23,8 +23,8 @@ describe('A- Preconditions', () => {
 			method: 'GET',
 			url: `${data.main.baseURL}/${data.paths.boards}/${data.ids.board}/${data.paths.lists}`,
 			qs: {
-				key: TRELLO_KEY,
-				token: TRELLO_TOKEN,
+				key: key,
+				token: token,
 			},
 		}).then(response => {
 			expect(response).to.be.an('object');
@@ -38,8 +38,8 @@ describe('A- Preconditions', () => {
 			method: 'POST',
 			url: `${data.main.baseURL}/${data.paths.cards}`,
 			qs: {
-				key: TRELLO_KEY,
-				token: TRELLO_TOKEN,
+				key: key,
+				token: token,
 				idList: data.ids.list1,
 				name: data.titles.card
 			},
@@ -56,8 +56,8 @@ describe('B- Suite',() => {
 			method: 'POST',
 			url: `${data.main.baseURL}/${data.paths.lists}/${data.ids.list1}/${data.paths.moveAllCards}`,
 			qs: {
-				key: TRELLO_KEY,
-				token: TRELLO_TOKEN,
+				key: key,
+				token: token,
 				idBoard: data.ids.board,
 				idList: data.ids.list2
 			},
@@ -70,8 +70,8 @@ describe('B- Suite',() => {
 			method: 'GET',
 			url: `${data.main.baseURL}/${data.paths.lists}/${data.ids.list1}/${data.paths.cards}`,
 			qs: {
-				key: TRELLO_KEY,
-				token: TRELLO_TOKEN,
+				key: key,
+				token: token,
 			},
 		}).then(response => {
 			expect(response.status).to.eql(200);
@@ -83,8 +83,8 @@ describe('B- Suite',() => {
 			method: 'GET',
 			url: `${data.main.baseURL}/${data.paths.lists}/${data.ids.list2}/${data.paths.cards}`,
 			qs: {
-				key: TRELLO_KEY,
-				token: TRELLO_TOKEN,
+				key: key,
+				token: token,
 			},
 		}).then(response => {
 			expect(response.status).to.eql(200);
@@ -96,8 +96,8 @@ describe('B- Suite',() => {
 			method: 'POST',
 			url: `${data.main.baseURL}/${data.paths.lists}/${data.ids.list2}/${data.paths.archieveAllCards}`,
 			qs: {
-				key: TRELLO_KEY,
-				token: TRELLO_TOKEN,
+				key: key,
+				token: token,
 			},
 		}).then(response => {
 			expect(response.status).to.eql(200);
@@ -108,8 +108,8 @@ describe('B- Suite',() => {
 			method: 'GET',
 			url: `${data.main.baseURL}/${data.paths.lists}/${data.ids.list2}/${data.paths.cards}`,
 			qs: {
-				key: TRELLO_KEY,
-				token: TRELLO_TOKEN,
+				key: key,
+				token: token,
 			},
 		}).then(response => {
 			expect(response.status).to.eql(200);
@@ -121,8 +121,8 @@ describe('B- Suite',() => {
 			method: 'POST',
 			url: `${data.main.baseURL}/${data.paths.cards}`,
 			qs: {
-				key: TRELLO_KEY,
-				token: TRELLO_TOKEN,
+				key: key,
+				token: token,
 				idList: data.ids.list1,
 				name: data.titles.card
 			},
@@ -136,8 +136,8 @@ describe('B- Suite',() => {
 			method: 'POST',
 			url: `${data.main.baseURL}/${data.paths.lists}/${data.ids.fake}/${data.paths.moveAllCards}`,
 			qs: {
-				key: TRELLO_KEY,
-				token: TRELLO_TOKEN,
+				key: key,
+				token: token,
 				idBoard: data.ids.board,
 				idList: data.ids.list2
 			},
@@ -151,8 +151,8 @@ describe('B- Suite',() => {
 			method: 'POST',
 			url: `${data.main.baseURL}/${data.paths.lists}/${data.ids.list1}/${data.paths.moveAllCards}`,
 			qs: {
-				key: TRELLO_KEY,
-				token: TRELLO_TOKEN,
+				key: key,
+				token: token,
 				idBoard: data.ids.board,
 				idList: data.ids.fake
 			},
@@ -166,8 +166,8 @@ describe('B- Suite',() => {
 			method: 'POST',
 			url: `${data.main.baseURL}/${data.paths.lists}/${data.ids.null}/${data.paths.moveAllCards}`,
 			qs: {
-				key: TRELLO_KEY,
-				token: TRELLO_TOKEN,
+				key: key,
+				token: token,
 				idBoard: data.ids.board,
 				idList: data.ids.list2
 			},
@@ -181,8 +181,8 @@ describe('B- Suite',() => {
 			method: 'POST',
 			url: `${data.main.baseURL}/${data.paths.lists}/${data.ids.list1}/${data.paths.moveAllCards}`,
 			qs: {
-				key: TRELLO_KEY,
-				token: TRELLO_TOKEN,
+				key: key,
+				token: token,
 				idBoard: data.ids.board,
 				idList: data.ids.null
 			},
@@ -196,8 +196,8 @@ describe('B- Suite',() => {
 			method: 'POST',
 			url: `${data.main.baseURL}/${data.paths.lists}/${data.ids.fake}/${data.paths.archieveAllCards}`,
 			qs: {
-				key: TRELLO_KEY,
-				token: TRELLO_TOKEN,
+				key: key,
+				token: token,
 			},
 			failOnStatusCode: false,
 		}).then(response => {
@@ -209,8 +209,8 @@ describe('B- Suite',() => {
 			method: 'POST',
 			url: `${data.main.baseURL}/${data.paths.lists}/${data.ids.null}/${data.paths.archieveAllCards}`,
 			qs: {
-				key: TRELLO_KEY,
-				token: TRELLO_TOKEN,
+				key: key,
+				token: token,
 			},
 			failOnStatusCode: false,
 		}).then(response => {
@@ -225,8 +225,8 @@ describe('C- Postconditions',() => {
 			method: 'DELETE',
 			url: `${data.main.baseURL}/${data.paths.boards}/${data.ids.board}`,
 			qs: {
-				key: TRELLO_KEY,
-				token: TRELLO_TOKEN,
+				key: key,
+				token: token,
 			},
 		}).then(response => {
 			expect(response.status).to.eql(200);

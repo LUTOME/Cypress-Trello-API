@@ -17,7 +17,7 @@
 			"cypress",
 			"node"
 		],
-		"baseUrl": ".",
+		"baseUrl": "https://api.trello.com/1",
 		"paths": {
 			"@pages/*": ["./cypress/support/pages/*"],
 			"@helper/*": ["./cypress/support/helper/*"],
