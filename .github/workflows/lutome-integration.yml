@@ -3,7 +3,7 @@ run-name: ${{github.actor}}👨🏻‍🔬 triggered SanityTest in ${{github.ref
 
 on:
   push:
-    branches: ['stage']
+    branches: ['QA']
   workflow_dispatch:
 
 jobs:
@@ -33,8 +33,8 @@ jobs:
         command: |
           bun run test:chrome cypress/e2e/Tests/Trello/*.cy.ts
       env:
-        TRELLO_KEY: ${{ secrets.TRELLO_KEY }}
-        TRELLO_TOKEN: ${{ secrets.TRELLO_TOKEN }}
+        key: ${{ secrets.TRELLO_KEY }}
+        token: ${{ secrets.TRELLO_TOKEN }}
 
     - name: 📬Generate JUnit/Mocha Report
       if: always()
