@@ -1,8 +1,8 @@
 import data from '../../../fixtures/data/trello.json';
 import 'dotenv/config';
 
-const key:string = process.env.APIKEY as string;
-const token:string = process.env.APITOKEN as string;
+const key:string = process.env.TRELLO_KEY as string;
+const token:string = process.env.TRELLO_TOKEN as string;
 
 describe('A- Preconditions', () => {
 	it('1.0: Create a board', () => {

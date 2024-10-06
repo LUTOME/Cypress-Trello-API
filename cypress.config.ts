@@ -50,6 +50,7 @@ export default defineConfig({
 		},
 	},
 	env: {
-
+		TRELLO_KEY: apiKey,
+		TRELLO_TOKEN: apiToken
 	},
 });
