@@ -1,9 +1,9 @@
-name: 🧪Pipeline SanityTest
-run-name: ${{github.actor}}👨🏻‍🔬 triggered SanityTest in ${{github.ref_name}}
+name: 🧪Pipeline Feature in Stage
+run-name: ${{github.actor}}👨🏻‍🔬 triggered Feature in ${{github.ref_name}}
 
 on:
   push:
-    branches: ['qa']
+    branches: ['stage']
   workflow_dispatch:
 
 jobs:

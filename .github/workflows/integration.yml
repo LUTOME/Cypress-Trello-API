@@ -1,0 +1,50 @@
+name: 🧪Pipeline Integration in QA
+run-name: ${{github.actor}}👨🏻‍🔬 triggered Integration in ${{github.ref_name}}
+
+on:
+  push:
+    branches: ['qa']
+  workflow_dispatch:
+
+jobs:
+  SanityTest:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 💻Checkout
+      uses: actions/checkout@v4
+
+    - name: 💿Install Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+
+    - name: 🍙 Bun Setup
+      uses: oven-sh/setup-bun@v1
+
+    - name: 🧬Install All Dependencies
+      run: |
+        bun install
+
+    - name: 🧪Cypress Run Test Coverage
+      uses: cypress-io/github-action@v4
+      with:
+        browser: chrome
+        command: |
+          bun run test:chrome cypress/e2e/Tests/Trello/*.cy.ts
+      env:
+        key: ${{ secrets.TRELLO_KEY }}
+        token: ${{ secrets.TRELLO_TOKEN }}
+
+    - name: 📬Generate JUnit/Mocha Report
+      if: always()
+      run: |
+        bun run chrome:report
+
+    - name: 📊Upload Artifact Mochawesome Report
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: sanity-mocha-report
+        path: cypress/tests_reports/chrome_mocha_report
+        retention-days: 15

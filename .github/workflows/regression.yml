@@ -1,14 +1,13 @@
-name: 🧪Pipeline Regression in QA
+name: 🧪Pipeline Regression in Main
 run-name: ${{github.actor}}👨🏻‍🔬 triggered Regression in ${{github.ref_name}}
 
 on:
   push:
-    branches:
-    - QA
+    branches: ['main']
 
 jobs:
   RegressionTesting:
-    name: regression
+    name: Regression
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
