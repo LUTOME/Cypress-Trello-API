@@ -1,9 +1,9 @@
-name: 🧪Pipeline SanityTest
-run-name: ${{github.actor}}👨🏻‍🔬 triggered SanityTest in ${{github.ref_name}}
+name: 🧪Push on Stage (Feature pipeline)
+run-name: ${{github.actor}}👨🏻‍🔬 triggered Feature in ${{github.ref_name}}
 
 on:
   push:
-    branches: ['qa']
+    branches: ['stage']
   workflow_dispatch:
 
 jobs:
@@ -26,6 +26,20 @@ jobs:
       run: |
         bun install
 
+    - name: Check environment variables
+      run: |
+        if [ -z "$TRELLO_KEY" ]; then
+          echo "TRELLO_KEY is not set"
+        else
+          echo "TRELLO_KEY is set"
+        fi
+
+        if [ -z "$TRELLO_TOKEN" ]; then
+          echo "TRELLO_TOKEN is not set"
+        else
+          echo "TRELLO_TOKEN is set"
+        fi
+
     - name: 🧪Cypress Run Test Coverage
       uses: cypress-io/github-action@v4
       with:
@@ -33,8 +47,8 @@ jobs:
         command: |
           bun run test:chrome cypress/e2e/Tests/Trello/*.cy.ts
       env:
-        key: ${{ secrets.TRELLO_KEY }}
-        token: ${{ secrets.TRELLO_TOKEN }}
+        TRELLO_KEY: ${{ secrets.TRELLO_KEY }}
+        TRELLO_TOKEN: ${{ secrets.TRELLO_TOKEN }}
 
     - name: 📬Generate JUnit/Mocha Report
       if: always()

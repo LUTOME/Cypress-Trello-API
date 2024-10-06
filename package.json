@@ -34,7 +34,12 @@
 		"lint:check": "npx eslint cypress",
 		"lint:fix": "npx eslint --fix cypress"
 	},
-	"keywords": ["Lutome","Api", "Trello", "Cypress"],
+	"keywords": [
+		"Lutome",
+		"Api",
+		"Trello",
+		"Cypress"
+	],
 	"author": "Lutome",
 	"license": "MIT",
 	"type": "module",
@@ -53,7 +58,7 @@
 		"cypress-multi-reporters": "1.6.4",
 		"cypress-plugin-api": "2.11.1",
 		"cypress-plugin-steps": "1.1.1",
-		"dotenv": "^16.4.1",
+		"dotenv": "^16.4.5",
 		"esbuild": "0.20.0",
 		"eslint": "8.56.0",
 		"eslint-plugin-chai-friendly": "0.7.4",
