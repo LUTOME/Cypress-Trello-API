@@ -1,4 +1,4 @@
-name: 🧪Pipeline Feature in Stage
+name: 🧪Push on Stage (Feature pipeline)
 run-name: ${{github.actor}}👨🏻‍🔬 triggered Feature in ${{github.ref_name}}
 
 on:

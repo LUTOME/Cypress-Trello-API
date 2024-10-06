@@ -1,4 +1,4 @@
-name: 🧪Pipeline Integration in QA
+name: 🧪PR accepted on QA (Integration pipeline)
 run-name: ${{github.actor}}👨🏻‍🔬 triggered Integration in ${{github.ref_name}}
 
 on:
