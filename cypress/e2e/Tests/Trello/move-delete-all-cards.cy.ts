@@ -1,6 +1,8 @@
 import data from '../../../fixtures/data/trello.json';
-const key:string = Cypress.env('APIKEY');
-const token:string = Cypress.env('APITOKEN');
+import 'dotenv/config';
+
+const key:string = process.env.APIKEY as string;
+const token:string = process.env.APITOKEN as string;
 
 describe('A- Preconditions', () => {
 	it('1.0: Create a board', () => {
@@ -8,8 +10,8 @@ describe('A- Preconditions', () => {
 			method: 'POST',
 			url: `${data.main.baseURL}/${data.paths.boards}`,
 			qs: {
-				key: key,
-				token: token,
+				key: `${key}`,
+				token: `${token}`,
 				name: data.titles.board
 			},
 		}).then(response => {
