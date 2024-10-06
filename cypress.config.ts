@@ -3,13 +3,12 @@ import createBundler from '@bahmutov/cypress-esbuild-preprocessor';
 import dotenv from 'dotenv';
 dotenv.config();
 
-const apiKey = process.env.APIKEY;
-const apiToken = process.env.APITOKEN;
+const apiKey = process.env.TRELLO_KEY;
+const apiToken = process.env.TRELLO_TOKEN;
 
 if(!apiKey||!apiToken) {
-	throw new Error('Missing auth variables')
+	throw new Error('Missing auth variables');
 };
-
 
 export default defineConfig({
 	// CYPRESS CLOUD : Aquí se configura el project id para ejecutar pruebas en https://cloud.cypress.io
@@ -37,7 +36,7 @@ export default defineConfig({
 	},
 	// E2E Testing runner
 	e2e: {
-		baseUrl: 'https://demoqa.com',
+		baseUrl: 'https://api.trello.com/1',
 		// Glob pattern to determine what test files to load:
 		specPattern: [ 'cypress/e2e/**/*.cy.{js,jsx,ts,tsx}' ],
 		excludeSpecPattern: [ 'cypress/e2e/**/*.example.cy.js' ],
